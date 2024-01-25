@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { User } from './users/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -10,9 +12,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     port: +process.env.DATABASE_PORT,
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
-    autoLoadEntities: true
-  })],
-  controllers: [AppController],
-  providers: [AppService],
+    entities: [User],
+    synchronize: true
+  }), AuthModule, UsersModule],
+  controllers: [AuthController],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule {
+
+  
+}
