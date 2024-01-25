@@ -1,5 +1,4 @@
-import { Column, Entity, Index, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Points } from "./points/points.entity";
+import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
 export class User {
@@ -20,18 +19,15 @@ export class User {
     @Column()
     gender: string;
 
-    @Index()
     @Column({unique: true})
     email: string;
 
     @Column()
     password: string;
 
-    @Index()
-    @Column({unique: true})
+    @Column({unique: true, default: 0x0})
     cardId: number;
 
-    @OneToOne(() => Points)
-    @JoinColumn()
+    @Column({default: 0})
     points: number;
 }

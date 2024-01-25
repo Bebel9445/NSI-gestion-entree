@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
-import argon2 from 'argon2'
+import * as argon2 from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class AuthService {
         const user = await this.usersService.findOne(email)
         //B64 DECODE PASS + ARGON2 CHECK
         const b64Decode = (str: string):string => Buffer.from(str, 'base64').toString('binary')
-        if (!argon2.verify(b64Decode(user.password), b64Decode(pass))) {
+        if (!await argon2.verify(b64Decode(user.password), pass)) {
             throw new UnauthorizedException()
         }
 
@@ -22,5 +22,10 @@ export class AuthService {
         return {
             access_token: await this.jwtService.signAsync(payload)
         }
+    }
+
+    async signUp(email: string, password: string, age: number, gender: string, firstName: string, lastName: string) {
+        const hashedPassword = await argon2.hash(password)
+        return this.usersService.create(email, hashedPassword, age, gender, firstName, lastName)
     }
 }
