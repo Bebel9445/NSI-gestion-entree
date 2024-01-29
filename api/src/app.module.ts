@@ -4,6 +4,7 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/user.entity';
+import { AccountsModule } from './accounts/accounts.module';
 import 'dotenv/config'
 import * as process from "process";
 
@@ -17,7 +18,7 @@ import * as process from "process";
     database: process.env.DATABASE_DATABASE,
     entities: [User],
     synchronize: true
-  }), AuthModule, UsersModule],
+  }), AuthModule, UsersModule, AccountsModule],
   controllers: [AuthController],
   providers: [],
 })
