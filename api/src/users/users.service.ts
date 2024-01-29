@@ -28,6 +28,6 @@ export class UsersService {
             gender: gender,
             firstName: firstName,
             lastName: lastName
-        })
+        }) !== undefined
     }
 }
