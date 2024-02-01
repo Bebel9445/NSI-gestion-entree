@@ -26,7 +26,7 @@ export class AuthService {
             access_token: await this.jwtService.signAsync(payload)
         }
     }
-
+    
     async signUp(signUpDto: SignUpDto) {
         const {email, password, age, gender, firstName, lastName} = signUpDto
         const hashedPassword = await argon2.hash(password)
