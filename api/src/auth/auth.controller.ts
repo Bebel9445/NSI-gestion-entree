@@ -24,8 +24,9 @@ export class AuthController {
     }
 
     @Get('profile')
+    @HttpCode(HttpStatus.OK)
     getProfile(@Request() req){
-        return req.user
+        return req.user ?? req.body
     }
 
 }

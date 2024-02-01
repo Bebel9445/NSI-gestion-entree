@@ -4,9 +4,11 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/user.entity';
-import { AccountsModule } from './accounts/accounts.module';
 import 'dotenv/config'
 import * as process from "process";
+import { APP_GUARD } from '@nestjs/core'
+import { AuthGuard } from './auth/auth.guard'
+import { ApikeyModule } from './auth/apikey/apikey.module'
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -18,9 +20,14 @@ import * as process from "process";
     database: process.env.DATABASE_DATABASE,
     entities: [User],
     synchronize: true
-  }), AuthModule, UsersModule, AccountsModule],
+  }), AuthModule, UsersModule, ApikeyModule],
   controllers: [AuthController],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard
+    }
+  ],
 })
 export class AppModule {
 
