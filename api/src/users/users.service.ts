@@ -20,7 +20,9 @@ export class UsersService {
     }
     
     async remove(id: number): Promise<void> {
-        await this.userRepository.delete(id)
+        await this.dataSource.transaction(async manager => {
+            await manager.delete(User, id)
+        })
     }
 
     async create(email: string, password: string, age: number, gender: string, firstName: string, lastName: string){
