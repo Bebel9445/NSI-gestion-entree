@@ -10,6 +10,7 @@ import { APP_GUARD } from '@nestjs/core'
 import { AuthGuard } from './auth/auth.guard'
 import { ApikeyModule } from './auth/apikey/apikey.module'
 import { AccountController } from './account/account.controller';
+import { AccountModule } from './account/account.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -21,7 +22,7 @@ import { AccountController } from './account/account.controller';
     database: process.env.DATABASE_DATABASE,
     entities: [User],
     synchronize: true
-  }), AuthModule, UsersModule, ApikeyModule],
+  }), AuthModule, UsersModule, ApikeyModule, AccountModule],
   controllers: [AuthController, AccountController],
   providers: [
     {
