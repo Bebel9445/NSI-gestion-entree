@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
         const key = request.headers['x-api-key'] ?? request.query.api_key
         if(key)
-            return this.apiKeyService.isKeyValid(key)
+            return await this.apiKeyService.isKeyValid(key)
 
         const token = this.extractTokenFromHeader(request)
         if (request.headers.authorization && !token){
