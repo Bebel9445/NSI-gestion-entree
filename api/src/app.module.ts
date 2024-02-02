@@ -21,8 +21,7 @@ import { Apikey } from './auth/apikey/apikey.entity'
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DATABASE,
-    entities: [User, Apikey],
-    synchronize: true
+    entities: [User, Apikey]
   }), AuthModule, UsersModule, ApikeyModule, AccountModule],
   controllers: [AuthController, AccountController],
   providers: [
