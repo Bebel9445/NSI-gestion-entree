@@ -6,21 +6,20 @@ import { SignUpDto } from './dto/sign-up.dto'
 
 @Controller('auth')
 export class AuthController {
-    constructor(private authService: AuthService) {
-    }
+    constructor(private authService: AuthService) {}
 
     @Public()
     @HttpCode(HttpStatus.OK)
     @Post('login')
-    signIn(@Body() signInDto: SignInDto) {
-        return this.authService.signIn(signInDto)
+    async signIn(@Body() signInDto: SignInDto) {
+        return await this.authService.signIn(signInDto)
     }
 
     @Public()
     @HttpCode(HttpStatus.CREATED)
     @Post('register')
-    signUp(@Body() signUpDto: SignUpDto) {
-        return this.authService.signUp(signUpDto)
+    async signUp(@Body() signUpDto: SignUpDto) {
+        return await this.authService.signUp(signUpDto)
     }
 
     @Get('profile')
