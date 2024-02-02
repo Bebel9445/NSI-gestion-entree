@@ -18,6 +18,14 @@ export class AccountController {
     const user = req.user
     if (!user) return await res.status(HttpStatus.PRECONDITION_REQUIRED).send()
 
-    return res.send(await this.usersService.findOne(user.email))
+    return res.send(await this.usersService.findOne(user.sub))
+  }
+
+  @Get('/balance')
+  async getBalance(@Request() req, @Response() res){
+    const user = req.user
+    if (!user) return await res.status(HttpStatus.PRECONDITION_REQUIRED).send()
+
+    return res.send({"balance": (await this.usersService.findOne(user.sub)).points})
   }
 }
