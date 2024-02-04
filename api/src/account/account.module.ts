@@ -1,17 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AccountController } from './account.controller'
 import { UsersModule } from 'src/users/users.module'
-import { AccountGuard } from './account.guard'
-import { APP_GUARD } from '@nestjs/core/constants'
+import { AccountService } from './account.service';
 
 @Module({
     controllers:[AccountController],
     imports: [UsersModule],
-    providers: [
-        {
-            provide: APP_GUARD,
-            useClass: AccountGuard
-        }
-    ]
+    providers: [AccountService],
+    exports: [AccountService]
 })
 export class AccountModule {}

@@ -7,26 +7,29 @@ import {
   Post,
   Request,
   Response,
+  UseGuards,
 } from '@nestjs/common'
-import { UsersService } from 'src/users/users.service'
+import { AccountGuard } from './account.guard'
+import { AccountService } from './account.service'
 
 @Controller('account')
+@UseGuards(AccountGuard)
 export class AccountController {
-  constructor(private usersService: UsersService) {}
+  constructor(private accountService: AccountService) {}
 
   @Get()
   @HttpCode(HttpStatus.OK)
   async getAccount(@Request() req, @Response() res) {
     const user = req.user
 
-    return res.send(await this.usersService.findOne(user.sub))
+    return res.send(await this.accountService.findOne(user.sub))
   }
 
   @Get('/balance')
   async getBalance(@Request() req, @Response() res){
     const user = req.user
 
-    return res.send({"balance": (await this.usersService.findOne(user.sub)).points})
+    return res.send({"balance": (await this.accountService.findOne(user.sub)).points})
   }
 
   @Post('/reset-password')
@@ -34,6 +37,7 @@ export class AccountController {
   async resetPassword(@Request() req){
     const user = req.user
     const newPassword = req.body['new_password']
-    return newPassword
+    
+    return await this.accountService.resetPassword(user.sub, newPassword)
   }
 }
