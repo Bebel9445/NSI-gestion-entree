@@ -17,8 +17,6 @@ import { ApikeyModule } from './apikey/apikey.module';
       secret: jwtConstants.secret,
       signOptions: {expiresIn: '24h'}
     }),
-    
-    ApikeyModule,
   ],
   exports: [AuthService]
 })
