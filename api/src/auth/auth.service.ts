@@ -27,7 +27,7 @@ export class AuthService {
         }
     }
     
-    async signUp(signUpDto: SignUpDto) {
+    async signUp(signUpDto: SignUpDto): Promise<boolean> {
         const {email, password, age, gender, firstName, lastName} = signUpDto
         const hashedPassword = await argon2.hash(password)
         return this.usersService.create(email, hashedPassword, age, gender, firstName, lastName)

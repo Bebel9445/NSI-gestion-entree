@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { User } from './user.entity'
 import { InjectRepository } from '@nestjs/typeorm'
-import { DataSource, Repository, UpdateResult } from 'typeorm'
+import { DataSource, DeleteResult, Repository, UpdateResult } from 'typeorm'
 
 @Injectable()
 export class UsersService {
@@ -22,9 +22,9 @@ export class UsersService {
     }
   }
 
-  async remove(id: number): Promise<void> {
-    await this.dataSource.transaction(async (manager) => {
-      await manager.delete(User, id)
+  async remove(id: number): Promise<DeleteResult> {
+    return await this.dataSource.transaction(async (manager) => {
+      return await manager.delete(User, id)
     })
   }
 
@@ -35,7 +35,7 @@ export class UsersService {
       })
     })
   }
-
+  
   async create(
     email: string,
     password: string,
@@ -43,10 +43,10 @@ export class UsersService {
     gender: string,
     firstName: string,
     lastName: string,
-  ) {
+  ): Promise<boolean> {
     await this.dataSource
       .transaction(async (manager) => {
-        return await manager.save({
+        await manager.save({
           email: email,
           password: this.b64Encode(password),
           points: 0,
@@ -55,9 +55,11 @@ export class UsersService {
           firstName: firstName,
           lastName: lastName,
         })
+        return true
       })
       .catch((err) => {
         throw new BadRequestException(err)
       })
+    return false
   }
 }
