@@ -3,29 +3,55 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Post,
   Request,
   Response,
+  UseGuards,
 } from '@nestjs/common'
-import { UsersService } from 'src/users/users.service'
+import { AccountGuard } from './account.guard'
+import { AccountService } from './account.service'
 
 @Controller('account')
+@UseGuards(AccountGuard)
 export class AccountController {
-  constructor(private usersService: UsersService) {}
+  constructor(private accountService: AccountService) {}
 
   @Get()
   @HttpCode(HttpStatus.OK)
   async getAccount(@Request() req, @Response() res) {
     const user = req.user
-    if (!user) return await res.status(HttpStatus.PRECONDITION_REQUIRED).send()
 
-    return res.send(await this.usersService.findOne(user.sub))
+    return res.send(await this.accountService.findOne(user.sub))
   }
 
   @Get('/balance')
-  async getBalance(@Request() req, @Response() res){
+  async getBalance(@Request() req, @Response() res) {
     const user = req.user
-    if (!user) return await res.status(HttpStatus.PRECONDITION_REQUIRED).send()
 
-    return res.send({"balance": (await this.usersService.findOne(user.sub)).points})
+    return res.send({
+      balance: (await this.accountService.findOne(user.sub)).points,
+    })
+  }
+
+  @Post('/reset-password')
+  async resetPassword(@Request() req) {
+    const user = req.user
+    const newPassword = req.body['new_password']
+
+    return await this.accountService.resetPassword(user.sub, newPassword)
+  }
+
+  @Post('/delete')
+  async deleteAccount(@Request() req) {
+    const user = req.user
+
+    if (!req.body.confirm) {
+      return {
+        error:
+          "You must confirm the deletion of your account by setting the 'confirm' field to true in your request body.",
+      }
+    }
+    //TODO: refresh token system
+    return await this.accountService.deleteAccount(user.sub)
   }
 }
