@@ -30,4 +30,7 @@ export class User {
 
     @Column({default: 0})
     points: number;
+
+    @Column({default: null})
+    refreshToken: string
 }
