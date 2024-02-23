@@ -60,6 +60,5 @@ export class UsersService {
       .catch((err) => {
         throw new BadRequestException(err['sqlMessage'])
       })
-    return false
   }
 }
