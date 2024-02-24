@@ -1,16 +1,14 @@
-import { CanActivate, ExecutionContext, HttpStatus } from "@nestjs/common"
+import { CanActivate, ExecutionContext, HttpStatus } from '@nestjs/common'
 
 export class AccountGuard implements CanActivate {
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const req = context.switchToHttp().getRequest()
+    const res = context.switchToHttp().getResponse()
+    req['user'] = req.user ?? JSON.parse(JSON.stringify({"sub": req.body['user']}))
 
-    async canActivate(context: ExecutionContext): Promise<boolean> {
-        const req = context.switchToHttp().getRequest()
-        const res = context.switchToHttp().getResponse()
-        const user = req.user
+    if (req.user) return true
 
-        if(user) 
-            return true
-
-        res.sendStatus(HttpStatus.PRECONDITION_REQUIRED)
-        return false
-    }
+    res.sendStatus(HttpStatus.PRECONDITION_REQUIRED)
+    return false
+  }
 }
