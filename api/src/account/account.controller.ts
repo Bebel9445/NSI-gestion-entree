@@ -3,6 +3,7 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Patch,
   Post,
   Request,
   Response,
@@ -10,11 +11,16 @@ import {
 } from '@nestjs/common'
 import { AccountGuard } from './account.guard'
 import { AccountService } from './account.service'
+import { ApiKeyOnly } from 'src/auth/apikey/apikey.decorator'
+import { DataSource } from 'typeorm'
 
 @Controller('account')
 @UseGuards(AccountGuard)
 export class AccountController {
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private dataSource: DataSource,
+  ) {}
 
   @Get()
   @HttpCode(HttpStatus.OK)
@@ -30,6 +36,17 @@ export class AccountController {
 
     return res.send({
       balance: (await this.accountService.findOne(user.sub)).points,
+    })
+  }
+
+  @ApiKeyOnly()
+  @Patch('/balance/recharge')
+  async rechargeBalance(@Request() req) {
+    const userId = req.user.sub
+    const user = await this.accountService.findOne(userId)
+    await this.dataSource.transaction(async (manager) => {
+      user.points += +req.body.amount
+      manager.save(user)
     })
   }
 
