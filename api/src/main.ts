@@ -3,6 +3,7 @@ import { AppModule } from './app.module'
 import 'dotenv/config'
 import * as process from 'process'
 import { readFileSync } from 'fs'
+import helmet from 'helmet'
 
 async function bootstrap() {
   const isHttps: boolean = process.env.HTTPS === 'true'
@@ -20,6 +21,8 @@ async function bootstrap() {
     })
   } else app = await NestFactory.create(AppModule)
 
+  app.use(helmet())
+  app.enableCors()
   await app.listen(3000)
 }
 bootstrap()
