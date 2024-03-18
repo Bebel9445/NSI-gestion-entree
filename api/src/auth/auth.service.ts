@@ -30,9 +30,9 @@ export class AuthService {
     }
     
     async signUp(signUpDto: SignUpDto): Promise<boolean> {
-        const {email, password, age, gender, firstName, lastName} = signUpDto
+        const {email, password, age, gender, firstName, lastName, cardId} = signUpDto
         const hashedPassword = await argon2.hash(password)
-        return await this.usersService.create(email, hashedPassword, age, gender, firstName, lastName)
+        return await this.usersService.create(email, hashedPassword, age, gender, firstName, lastName, cardId)
     }
 
     async generateAccessToken(refreshToken: string): Promise<string> {

@@ -25,8 +25,8 @@ export class User {
     @Column()
     password: string;
 
-    @Column({unique: true, default: 0x0})
-    cardId: number;
+    @Column({unique: true, default: "0x0"})
+    cardId: string;
 
     @Column({default: 0})
     points: number;

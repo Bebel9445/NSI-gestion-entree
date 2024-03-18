@@ -54,4 +54,11 @@ export class AccountController {
     //TODO: refresh token system
     return await this.accountService.deleteAccount(user.sub)
   }
+
+  @Post('/set-card-id')
+  async setCardId(@Request() req) {
+    const user = req.user
+    const cardId = req.cardId
+    return await this.accountService.setCardId(user.sub, cardId)
+  }
 }

@@ -5,4 +5,5 @@ export class SignUpDto {
     gender: string
     firstName: string
     lastName: string
+    cardId: string
 }

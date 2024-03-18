@@ -22,6 +22,10 @@ export class UsersService {
     }
   }
 
+  async findByCardId(identifier: string){
+    return this.userRepository.findOneBy({ cardId: identifier })
+  }
+
   async remove(id: number): Promise<DeleteResult> {
     return await this.dataSource.transaction(async (manager) => {
       return await manager.delete(User, id)
@@ -35,6 +39,12 @@ export class UsersService {
       })
     })
   }
+
+  async setCardId(user: number, cardId: string){
+    return await this.dataSource.transaction(async (manager) => {
+      return await manager.update(User, user, {"cardId": cardId})
+    })
+  }
   
   async create(
     email: string,
@@ -43,6 +53,7 @@ export class UsersService {
     gender: string,
     firstName: string,
     lastName: string,
+    cardId: string = "0x0"
   ): Promise<boolean> {
     await this.dataSource
       .transaction(async (manager) => {
@@ -54,6 +65,7 @@ export class UsersService {
           gender: gender,
           firstName: firstName,
           lastName: lastName,
+          cardId: cardId
         })
         await manager.save(user)
         return true

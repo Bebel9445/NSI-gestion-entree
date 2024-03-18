@@ -28,4 +28,11 @@ export class AccountService {
 
         return await this.usersService.remove(id)
     }
+
+    async setCardId(id: number | string, cardId: string): Promise<UpdateResult> {
+        if (typeof id === 'string') {
+            id = (await this.usersService.findOne(id)).id
+        }
+        return await this.usersService.setCardId(id, cardId)
+    }
 }
