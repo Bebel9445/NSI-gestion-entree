@@ -55,7 +55,7 @@ export class UsersService {
     lastName: string,
     cardId: string = "0x0"
   ): Promise<boolean> {
-    await this.dataSource
+    return await this.dataSource
       .transaction(async (manager) => {
         const user = manager.create(User, {
           email: email,
@@ -67,12 +67,10 @@ export class UsersService {
           lastName: lastName,
           cardId: cardId
         })
-        await manager.save(user)
-        return true
+        return await manager.save(user).then(() => true)
       })
       .catch((err) => {
         throw new BadRequestException(err['sqlMessage'])
       })
-    return false
   }
 }
