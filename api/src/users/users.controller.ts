@@ -9,6 +9,6 @@ export class UsersController {
 
     @Get('find')
     async getUserByCardId(@Body() cardId: string){
-        return (await this.userService.findByCardId(cardId[1])).id
+        return (await this.userService.findByCardId(cardId['cardId'])).id
     }
 }

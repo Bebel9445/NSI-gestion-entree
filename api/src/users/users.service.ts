@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { User } from './user.entity'
 import { InjectRepository } from '@nestjs/typeorm'
-import { DataSource, DeleteResult, Repository, UpdateResult } from 'typeorm'
+import { DataSource, DeleteResult, Equal, Repository, UpdateResult } from 'typeorm'
 
 @Injectable()
 export class UsersService {
@@ -16,14 +16,14 @@ export class UsersService {
 
   async findOne(identifier: string | number): Promise<User | undefined> {
     if (typeof identifier === 'string') {
-      return this.userRepository.findOneBy({ email: identifier })
+      return this.userRepository.findOneBy({ email: Equal(identifier) })
     } else {
-      return this.userRepository.findOneBy({ id: identifier })
+      return this.userRepository.findOneBy({ id: Equal(identifier) })
     }
   }
 
   async findByCardId(identifier: string){
-    return this.userRepository.findOneBy({ cardId: identifier })
+    return await this.userRepository.findOneBy({ cardId: Equal(identifier) })
   }
 
   async remove(id: number): Promise<DeleteResult> {
