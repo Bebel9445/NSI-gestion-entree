@@ -1,0 +1,57 @@
+.main {
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+        )
+    rgb(var(--background-start-rgb));
+    
+    --primary-glow: conic-gradient(
+        from 180deg at 50% 50%,
+        #16abff33 0deg,
+        #0885ff33 55deg,
+        #54d6ff33 120deg,
+        #0071ff33 160deg,
+        transparent 360deg
+      );
+      --secondary-glow: radial-gradient(
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0)
+      );
+}
+
+.textInput {
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: gray;
+}
+
+.button {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(37, 255, 219);
+  cursor: pointer;
+}
+
+.inputList input{
+  display: block;
+  margin: 15px;
+}
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
