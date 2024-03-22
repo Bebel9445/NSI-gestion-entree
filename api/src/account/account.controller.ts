@@ -40,6 +40,9 @@ export class AccountController {
     const user = await this.accountService.findOne(userId)
     await this.dataSource.transaction(async (manager) => {
       user.points += +req.body.amount
+      if (user.points < 0) {
+        user.points = 0
+      }
       manager.save(user)
     })
   }
@@ -72,7 +75,8 @@ export class AccountController {
     const cardId = req.cardId
     const result = await this.accountService.setCardId(user.sub, cardId)
     if (result.affected === 0) {
-      return res.status()
+      return res.sendStatus(HttpStatus.NOT_MODIFIED)
     }
+    return res.sendStatus(HttpStatus.OK)
   }
 }
