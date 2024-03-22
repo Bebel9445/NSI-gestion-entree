@@ -33,15 +33,6 @@ export class AccountController {
     return res.send(find)
   }
 
-  @Get('/balance')
-  async getBalance(@Request() req, @Response() res) {
-    const user = req.user
-
-    return res.send({
-      balance: (await this.accountService.findOne(user.sub)).points,
-    })
-  }
-
   @ApiKeyOnly()
   @Patch('/balance/recharge')
   async rechargeBalance(@Request() req) {
@@ -75,10 +66,13 @@ export class AccountController {
     return await this.accountService.deleteAccount(user.sub)
   }
 
-  @Post('/set-card-id')
-  async setCardId(@Request() req) {
+  @Patch('/set-card-id')
+  async setCardId(@Request() req, @Response() res) {
     const user = req.user
     const cardId = req.cardId
-    return await this.accountService.setCardId(user.sub, cardId)
+    const result = await this.accountService.setCardId(user.sub, cardId)
+    if (result.affected === 0) {
+      return res.status()
+    }
   }
 }
