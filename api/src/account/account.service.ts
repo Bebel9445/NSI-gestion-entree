@@ -9,24 +9,17 @@ export class AccountService {
     
     async findOne(identifier: string) {
         return this.usersService.findOne(identifier)
-    }   
-
-    async resetPassword(id: number | string, newPassword: string): Promise<UpdateResult> {
-        newPassword = await argon2.hash(newPassword)
-
-        if (typeof id === 'string') {
-            id = (await this.usersService.findOne(id)).id
-        }
-
-        return await this.usersService.resetPassword(id, newPassword)
     }
 
-    async deleteAccount(id: number | string): Promise<DeleteResult> {
-        if (typeof id === 'string') {
-            id = (await this.usersService.findOne(id)).id
-        }
+    async resetPassword(id: string, newPassword: string): Promise<UpdateResult> {
+        newPassword = await argon2.hash(newPassword)
 
-        return await this.usersService.remove(id)
+        const userId = (await this.usersService.findOne(id)).id
+        return await this.usersService.resetPassword(userId, newPassword)
+    }
+
+    async deleteAccount(id: string): Promise<DeleteResult> {
+        return await this.usersService.remove((await this.usersService.findOne(id)).id)
     }
 
     async setCardId(id: string, cardId: string): Promise<UpdateResult> {
