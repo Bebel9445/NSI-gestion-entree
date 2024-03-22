@@ -26,8 +26,11 @@ export class AccountController {
   @HttpCode(HttpStatus.OK)
   async getAccount(@Request() req, @Response() res) {
     const user = req.user
-
-    return res.send(await this.accountService.findOne(user.sub))
+    const find = await this.accountService.findOne(user.sub)
+    if (find === null){
+      return res.status(HttpStatus.NOT_FOUND).send()
+    }
+    return res.send(find)
   }
 
   @Get('/balance')

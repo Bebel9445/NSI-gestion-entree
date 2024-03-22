@@ -14,11 +14,11 @@ export class UsersService {
   b64Encode = (str: string): string =>
     Buffer.from(str, 'binary').toString('base64')
 
-  async findOne(identifier: string | number): Promise<User | undefined> {
-    if (typeof identifier === 'string') {
+  async findOne(identifier: string): Promise<User | null> {
+    if (Number.isNaN(Number.parseInt(identifier.toString()))){
       return this.userRepository.findOneBy({ email: Equal(identifier) })
     } else {
-      return this.userRepository.findOneBy({ id: Equal(identifier) })
+      return this.userRepository.findOneBy({ id: Equal(Number.parseInt(identifier)) })
     }
   }
 

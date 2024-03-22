@@ -7,7 +7,7 @@ import { DeleteResult, UpdateResult } from 'typeorm'
 export class AccountService {
     constructor(private usersService: UsersService) { }
     
-    async findOne(identifier: string | number) {
+    async findOne(identifier: string) {
         return this.usersService.findOne(identifier)
     }
 
