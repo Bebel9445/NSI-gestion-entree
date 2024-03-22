@@ -6,12 +6,11 @@
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background-color: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(62, 158, 100),
+      rgb(146, 222, 206))
 }
 
 .textInput {
@@ -41,6 +40,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.gender_label {
+  font-family: sans-serif;
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 30px;
 }
 
 .error {

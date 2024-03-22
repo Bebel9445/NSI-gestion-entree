@@ -11,12 +11,12 @@ export default function Register() {
     if (message !== "") {
       return {message: message}
     }
-    const firstName = formData.get("firstName")
-    const lastName = formData.get("lastName")
-    const age = formData.get("age")
-    const gender = formData.get("gender")
-    const email = formData.get("email")
-    const password = formData.get("password")
+    const firstName = formData.get("Prénom")
+    const lastName = formData.get("Nom")
+    const age = formData.get("Âge")
+    const gender = formData.get("Genre")
+    const email = formData.get("Email")
+    const password = formData.get("Mot de Passe")
     
     const res = await fetch(`https://92.88.14.43:3000/auth/register`, {
       method: "POST",
@@ -38,10 +38,10 @@ export default function Register() {
   }
 
   async function checkFormValidity(prevState: any, formData: FormData) {
-    const password = formData.get("password")
-    const retypePassword = formData.get("retypePassword")
+    const password = formData.get("Mot de Passe")
+    const retypePassword = formData.get("Confirmez Mot de Passe")
     if (retypePassword !== password) {
-      return { message: "Passwords do not match" }
+      return { message: "Mot de Passe non identique" }
     }
     return { message: "" }
   }
@@ -53,28 +53,34 @@ export default function Register() {
       <div className={inter.className}>
         <form action={formAction}>
           <div className={styles.inputList}>
-            <input type="text" placeholder="First Name" name="firstName" className={styles.textInput} required></input>
-            <input type="text" placeholder="Last Name" name="lastName" className={styles.textInput} required></input>
-            <input type="number" placeholder="Age" name="age" className={styles.textInput} required></input>
-            <input type="text" placeholder="Gender" name="gender" className={styles.textInput} required></input>
+            <input type="text" placeholder="Prénom" name="Prénom" className={styles.textInput} required></input>
+            <input type="text" placeholder="Nom" name="Nom" className={styles.textInput} required></input>
+            <input type="number" placeholder="Âge" name="Âge" className={styles.textInput} required></input>
+            <div className={styles.center}>
+              <select name="Genre" id="Genre" className={styles.textInput}>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
             <input
-              type="email"
-              placeholder="Your email"
-              name="email"
+              type="Email"
+              placeholder="Email"
+              name="Email"
               className={styles.textInput}
               required
             ></input>
             <input
-              type="password"
-              placeholder="Your password"
-              name="password"
+              type="Mot de Passe"
+              placeholder="Mot de Passe"
+              name="Mot de Passe"
               className={styles.textInput}
               required
             ></input>
             <input
-              type="password"
-              placeholder="Retype your password"
-              name="retypePassword"
+              type="Mot de Passe 2"
+              placeholder="Confirmez Mot de Passe"
+              name="Confirmez Mot de Passe"
               className={styles.textInput}
               required
             ></input>
@@ -84,7 +90,7 @@ export default function Register() {
               </p>
             </div>
             <div className={styles.center}>
-              <button className={styles.button}>Sign up</button>
+              <button className={styles.button}>S'inscrire</button>
             </div>
           </div>
         </form>
