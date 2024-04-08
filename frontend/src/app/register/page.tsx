@@ -1,7 +1,10 @@
 "use client"
 import { useFormState } from "react-dom"
-import styles from "./page.module.css"
 import { Inter } from "next/font/google"
+import Image from "next/image";
+import styles from "./page.module.css";
+import Link from "next/link";
+
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -50,9 +53,51 @@ export default function Register() {
 
   return (
     <main className={styles.main}>
+      <div className={styles.topnav}>
+          <Link href="http://localhost:3000"> <Image src="/Logo v4 (Tigre).jpg"
+          width={100}
+          height={50}
+          className={styles.logo} alt={""} ></Image></Link>  
+
+        <Link href="http://localhost:3000/register"
+        >
+          <li>
+            Identification
+          </li>
+        </Link>
+
+        <Link
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <li>
+            Qui sommes-nous ? 
+          </li>
+        </Link>
+
+        <Link href="http://localhost:3000/refill"
+
+        >
+          <li>
+            Rechargez 
+          </li>
+        </Link>
+
+        <Link
+          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <li>
+            Crédits </li>
+        </Link>
+      </div>
       <div className={inter.className}>
         <form action={formAction}>
-          <div className={styles.inputList}>
+          <div className={styles.inputList} className={styles.boites}>
             <input type="text" placeholder="Prénom" name="Prénom" className={styles.textInput} required></input>
             <input type="text" placeholder="Nom" name="Nom" className={styles.textInput} required></input>
             <input type="number" placeholder="Âge" name="Âge" className={styles.textInput} required></input>

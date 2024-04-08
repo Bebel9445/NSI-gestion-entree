@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.topnav}>
-        <Image
-          src="/Logo v4 (Tigre).jpg"
+          <Link href="http://localhost:3000"> <Image src="/Logo v4 (Tigre).jpg"
           width={100}
           height={50}
-          className={styles.logo} alt={""}        />
+          className={styles.logo} alt={""} ></Image></Link>  
+
         <Link href="http://localhost:3000/register"
         >
           <li>
@@ -29,15 +29,13 @@ export default function Home() {
           </li>
         </a>
 
-        <a
-          href="http://localhost:3000/refill"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link href="http://localhost:3000/refill"
+
         >
           <li>
             Rechargez 
           </li>
-        </a>
+        </Link>
 
         <a
           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

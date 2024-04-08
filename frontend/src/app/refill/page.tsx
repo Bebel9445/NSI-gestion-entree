@@ -5,11 +5,12 @@ export default function Refill() {
     return (
         <main className={styles.main}>
             <div className={styles.topnav}>
-                <Image
+                
+                <Link href="http://localhost:3000"> <Image
                     src="/Logo v4 (Tigre).jpg"
                     width={100}
                     height={50}
-                    className={styles.logo} alt={""}        />
+                    className={styles.logo} alt={""}  ></Image></Link> 
                 <Link href="http://localhost:3000/register"
                 >
                 <li>
