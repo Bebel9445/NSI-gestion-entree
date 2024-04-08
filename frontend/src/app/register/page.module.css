@@ -6,11 +6,7 @@
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
-  background-color: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(62, 158, 100),
-      rgb(146, 222, 206))
+  background: linear-gradient(#3e9e64, #92dece)
 }
 
 .textInput {
