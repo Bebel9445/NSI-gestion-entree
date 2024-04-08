@@ -16,11 +16,13 @@
   top: 0;
   background-color: black;
   overflow: hidden;
-  width: 100vw;
+  max-width: 100vw;
+  width: 100%;
   list-style: none;
   justify-content:center;
   display:flex;
 }
+
 .topnav li {
   float: left;
   color: #f2f2f2;
@@ -159,6 +161,16 @@
   .card:hover span {
     transform: none;
   }
+}
+
+@media screen and (max-width: 520px){
+  .topnav li {
+    display: block;
+  }
+
+  .topnav {
+    height: 50vh;
+  } 
 }
 
 /* Mobile */
