@@ -4,29 +4,16 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
+      <div className={styles.topnav}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
+          <li>
             Identification <span>-&gt;</span>
-          </h2>
-          <p>Connectez-vous ou créer un compte</p>
+          </li>
         </a>
 
         <a
@@ -35,10 +22,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
+          <li>
             Qui sommes-nous ? <span>-&gt;</span>
-          </h2>
-          <p>Découvrez qui nous sommes!</p>
+          </li>
         </a>
 
         <a
@@ -47,10 +33,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
+          <li>
             Rechargez <span>-&gt;</span>
-          </h2>
-          <p>Rechargez vos points pour continuer à utliser nos services!</p>
+          </li>
         </a>
 
         <a
@@ -59,12 +44,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
-            Crédits <span>-&gt;</span>
-          </h2>
-          <p>
-            Découvrez qui à créer ce site ainsi que ses services!
-          </p>
+          <li>
+            Crédits <span>-&gt;</span> </li>
         </a>
       </div>
     <p>Issoupe Inc.©</p>
