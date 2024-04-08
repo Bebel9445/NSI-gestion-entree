@@ -3,17 +3,26 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
-  background-image:url('../../public/image espace.jpeg')
+  background-color: #7A318C;
+  background-color: #e5e5f7;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #5c0e6e 39px ), repeating-linear-gradient(#960a8ce9, #d58205 );
 
+}
+.logo{
+  margin-right: 70px ;
 }
 
 .topnav {
   top: 0;
-  background-color: #333;
+  background-color: black;
   overflow: hidden;
   width: 100vw;
+  list-style: none;
+  justify-content:center;
+  display:flex;
 }
 .topnav a {
   float: left;
@@ -31,36 +40,6 @@
     background-color: #04AA6D;
     color: white;
   }
-
-.description {
-  color: white;
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.description a {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.description p {
-  color: white;
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
-}
 
 .code {
   color: white;
@@ -217,16 +196,6 @@
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
-
-  .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
 }
 

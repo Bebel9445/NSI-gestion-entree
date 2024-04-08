@@ -5,6 +5,12 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.topnav}>
+        <Image
+        src="/Logo v4 (Tigre).jpg"
+        width={100}
+        height={50}
+        className={styles.logo}
+        />
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -12,7 +18,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <li>
-            Identification <span>-&gt;</span>
+            Identification
           </li>
         </a>
 
@@ -23,7 +29,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <li>
-            Qui sommes-nous ? <span>-&gt;</span>
+            Qui sommes-nous ? 
           </li>
         </a>
 
@@ -34,7 +40,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <li>
-            Rechargez <span>-&gt;</span>
+            Rechargez 
           </li>
         </a>
 
@@ -45,7 +51,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <li>
-            Crédits <span>-&gt;</span> </li>
+            Crédits </li>
         </a>
       </div>
     <p>Issoupe Inc.©</p>
