@@ -5,33 +5,32 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.topnav}>
-          <Link href="http://localhost:3000"> <Image src="/Logo v4 (Tigre).jpg"
+      <nav className={styles.topnav}>
+        <Image
+          src="/Logo v4 (Tigre).jpg"
           width={100}
           height={50}
-          className={styles.logo} alt={""} ></Image></Link>  
+          className={styles.logo}
+        />
+        <li>
+          Recharger
+        </li>
+        <li>
+          Connexion
+        </li>
+        <li>
+          <Link href="/register">Inscription</Link>
+        </li>
+      </nav>
+      
+      <section className={styles.section}>
+      </section>
 
-        <Link href="http://localhost:3000/register"
-        >
-          <li>
-            Identification
-          </li>
-        </Link>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <li>
-            Qui sommes-nous ? 
-          </li>
-        </a>
-
-        <Link href="http://localhost:3000/refill"
-
-        >
+      <section className={styles.section}>
+        <hr style={{color: "black", width: "100vw"}}/>
+      </section>
+       
+      <Link href="http://localhost:3000/refill">
           <li>
             Rechargez 
           </li>
@@ -48,6 +47,21 @@ export default function Home() {
         </a>
       </div>
     <p>Issoupe Inc.©</p>
+    <footer className={styles.footer}>
+        <div className={styles.one}>
+          <div className={styles.vl}>
+            <ul className={styles.footerList}>
+              <li><a href="mailto:christinafit@orange.fr">Contact</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div className={styles.two}>
+          <div className={styles.vl}></div>
+        </div>
+        <div className={styles.copyright}>
+          <p>Issoupe Inc.©</p>
+        </div>
+      </footer>
     </main>
   );
 }
