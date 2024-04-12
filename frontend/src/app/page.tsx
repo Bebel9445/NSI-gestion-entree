@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Link from "../../node_modules/next/link";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -29,8 +29,25 @@ export default function Home() {
       <section className={styles.section}>
         <hr style={{color: "black", width: "100vw"}}/>
       </section>
+       
+      <Link href="http://localhost:3000/refill">
+          <li>
+            Rechargez 
+          </li>
+        </Link>
 
-      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <li>
+            Crédits </li>
+        </a>
+      </div>
+    <p>Issoupe Inc.©</p>
+    <footer className={styles.footer}>
         <div className={styles.one}>
           <div className={styles.vl}>
             <ul className={styles.footerList}>
