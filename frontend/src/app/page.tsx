@@ -8,10 +8,9 @@ export default function Home() {
       <nav className={styles.topnav}>
         <Image
           src="/Logo v4 (Tigre).jpg"
-          width={100}
-          height={50}
-          className={styles.logo}
-        />
+          width={105}
+          height={55}
+          className={styles.logo} alt={""} />
         <li>
           Recharger
         </li>
@@ -22,37 +21,46 @@ export default function Home() {
           <Link href="/register">Inscription</Link>
         </li>
       </nav>
-      
-      <section className={styles.section}>
-      </section>
 
-      <section className={styles.section}>
-        <hr style={{color: "black", width: "100vw"}}/>
-      </section>
-       
-      <Link href="http://localhost:3000/refill">
+        <section className={styles.section}>
+        </section>
+
+        <section className={styles.section}>
+          <hr style={{ color: "black", width: "100vw" }} />
+        </section>
+
+        <Link href="http://localhost:3000/refill">
           <li>
-            Rechargez 
+            Rechargez
           </li>
         </Link>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+      <a
+        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        className={styles.card}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <li>
+          Crédits </li>
+      </a>
+      <Link
+          href="http://localhost:3000/information"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <li>
-            Crédits </li>
-        </a>
-      </div>
-    <p>Issoupe Inc.©</p>
-    <footer className={styles.footer}>
+            Qui sommes-nous ? 
+          </li>
+        </Link>
+      <p>Issoupe Inc.©</p>
+      <footer className={styles.footer}>
         <div className={styles.one}>
           <div className={styles.vl}>
             <ul className={styles.footerList}>
               <li><a href="mailto:christinafit@orange.fr">Contact</a></li>
-            </ul>  
+            </ul>
           </div>
         </div>
         <div className={styles.two}>

@@ -55,8 +55,8 @@ export default function Register() {
     <main className={styles.main}>
       <div className={styles.topnav}>
           <Link href="http://localhost:3000"> <Image src="/Logo v4 (Tigre).jpg"
-          width={100}
-          height={50}
+          width={105}
+          height={55}
           className={styles.logo} alt={""} ></Image></Link>  
 
         <Link href="http://localhost:3000/register"
@@ -67,7 +67,7 @@ export default function Register() {
         </Link>
 
         <Link
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="http://localhost:3000/information"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -97,17 +97,20 @@ export default function Register() {
       </div>
       <div className={inter.className}>
         <form action={formAction}>
-          <div className={styles.inputList} className={styles.boites}>
+          <div className={styles.inputList}>
+            <div className={styles.boites}>
             <input type="text" placeholder="Prénom" name="Prénom" className={styles.textInput} required></input>
             <input type="text" placeholder="Nom" name="Nom" className={styles.textInput} required></input>
             <input type="number" placeholder="Âge" name="Âge" className={styles.textInput} required></input>
             <div className={styles.center}>
+              </div>
               <select name="Genre" id="Genre" className={styles.textInput}>
                 <option value="Homme">Homme</option>
                 <option value="Femme">Femme</option>
                 <option value="Autre">Autre</option>
               </select>
             </div>
+            <div className={styles.boites}>
             <input
               type="Email"
               placeholder="Email"
@@ -136,6 +139,7 @@ export default function Register() {
             </div>
             <div className={styles.center}>
               <button className={styles.button}>S'inscrire</button>
+            </div>
             </div>
           </div>
         </form>

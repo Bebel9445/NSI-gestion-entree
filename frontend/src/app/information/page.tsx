@@ -5,7 +5,6 @@ export default function Refill() {
     return (
         <main className={styles.main}>
             <div className={styles.topnav}>
-                
                 <Link href="http://localhost:3000"> <Image
                     src="/Logo v4 (Tigre).jpg"
                     width={105}
@@ -48,19 +47,16 @@ export default function Refill() {
                 <li>
                     Crédits </li>
                 </a>
-      </div>
-            <div className={styles.center}> 
-                <h2 className={styles.texte}> Rechargez vos points ici pour continuer à avoir accès à nos servives</h2>
             </div>
-            <div className={styles.boite}>
-                <button className={styles.styled} type="button">10 points </button>
-                <button className={styles.styled} type="button">20 points </button>
-                <button className={styles.styled} type="button">50 points </button>
-                <br></br>
-                <button className={styles.styled} type="button">70 points </button>
-                <button className={styles.styled} type="button">100 points </button>
-                <button className={styles.styled} type="button">200 points </button>
+            <div className={styles.textevdeux}>
+                
+                <h1> Qui sommes-nous ? </h1>
+                <pre>   </pre>
+                <pre>   </pre>
+                    <p> Nous sommes une association sportive, affiliée sports pour tous Grand Est.</p>
+                    <p> Nous avons des cours réguliers de zumba, strong by zumba, gymdouce, hiit, parcours training, fitboxe, stretching et relaxation.</p>
+                    <p> Nous faisons également des évènements caritatifs en fitness et des interventions et remplacement en salle de fitness.</p>         
             </div>
+
         </main>
-    )
-}
+    )}
