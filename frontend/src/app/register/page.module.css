@@ -6,6 +6,10 @@
   background: linear-gradient(#3e9e64, #92dece)
 }
 
+.container {
+  height: 90vh;
+}
+
 .boites{
   justify-content: center;
   align-items: center;
