@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(#3e9e64, #92dece)
+  background: rgba(149, 14, 95, 0.1)
 }
 
 .container {
@@ -21,7 +21,6 @@
   height: 35px;
   padding: 10px;
   border: none;
-  border-radius: 10px;
   color: gray;
 }
 
@@ -44,6 +43,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.globalCenter {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .gender_label {
@@ -78,11 +86,12 @@
   text-decoration: none;
   font-size: 17px;
 }
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;}
 
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}

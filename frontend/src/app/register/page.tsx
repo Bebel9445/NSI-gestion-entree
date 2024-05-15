@@ -58,49 +58,53 @@ export default function Register() {
       <div className={inter.className}>
         <Navigation/>
         <section className={styles.container}>
-          <form action={formAction}>
-            <div className={styles.inputList} className={styles.boites}>
-              <input type="text" placeholder="Prénom" name="Prénom" className={styles.textInput} required></input>
-              <input type="text" placeholder="Nom" name="Nom" className={styles.textInput} required></input>
-              <input type="number" placeholder="Âge" name="Âge" className={styles.textInput} required></input>
+          <div className={styles.globalCenter}>
+            <form action={formAction}>
               <div className={styles.center}>
-                <select name="Genre" id="Genre" className={styles.textInput}>
-                  <option value="Homme">Homme</option>
-                  <option value="Femme">Femme</option>
-                  <option value="Autre">Autre</option>
-                </select>
+                <div className={styles.inputList}>
+                  <input type="text" placeholder="Prénom" name="Prénom" className={styles.textInput} required></input>
+                  <input type="text" placeholder="Nom" name="Nom" className={styles.textInput} required></input>
+                  <input type="number" placeholder="Âge" name="Âge" className={styles.textInput} required></input>
+                  <div className={styles.center}>
+                    <select name="Genre" id="Genre" className={styles.textInput}>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                  </div>
+                  <input
+                    type="Email"
+                    placeholder="Email"
+                    name="Email"
+                    className={styles.textInput}
+                    required
+                  ></input>
+                  <input
+                    type="Mot de Passe"
+                    placeholder="Mot de Passe"
+                    name="Mot de Passe"
+                    className={styles.textInput}
+                    required
+                  ></input>
+                  <input
+                    type="Mot de Passe 2"
+                    placeholder="Confirmez Mot de Passe"
+                    name="Confirmez Mot de Passe"
+                    className={styles.textInput}
+                    required
+                  ></input>
+                  <div className={styles.center}>
+                    <p className={styles.error}>
+                      {state?.message}
+                    </p>
+                  </div>
+                  <div className={styles.center}>
+                    <button className={styles.button}>S'inscrire</button>
+                  </div>
+                </div>
               </div>
-              <input
-                type="Email"
-                placeholder="Email"
-                name="Email"
-                className={styles.textInput}
-                required
-              ></input>
-              <input
-                type="Mot de Passe"
-                placeholder="Mot de Passe"
-                name="Mot de Passe"
-                className={styles.textInput}
-                required
-              ></input>
-              <input
-                type="Mot de Passe 2"
-                placeholder="Confirmez Mot de Passe"
-                name="Confirmez Mot de Passe"
-                className={styles.textInput}
-                required
-              ></input>
-              <div className={styles.center}>
-                <p className={styles.error}>
-                  {state?.message}
-                </p>
-              </div>
-              <div className={styles.center}>
-                <button className={styles.button}>S'inscrire</button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </section>
         <Footer/>
       </div>
