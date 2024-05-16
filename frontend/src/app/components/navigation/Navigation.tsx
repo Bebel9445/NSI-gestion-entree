@@ -15,9 +15,6 @@ export default function Navigation() {
                 />
             </Link>
             <li>
-                <Link href="/refill">Recharger</Link>
-            </li>
-            <li>
                 <Link href="/login">Connexion</Link>
             </li>
             <li>
