@@ -3,6 +3,11 @@
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
+  background: rgba(149, 14, 95, 0.1)
+}
+
+.container {
+  height: 90vh;
   background: linear-gradient(#171717, #151515)
 }
 
@@ -17,6 +22,9 @@
   background-color: rgb(255, 255, 255);
   width: 400px;
   height: 35px;
+  padding: 10px;
+  border: none;
+  color: gray;
   margin-left: 15px;
   padding: 8px;
   border: solid;
@@ -42,6 +50,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.globalCenter {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .gender_label {
@@ -76,11 +93,12 @@
   text-decoration: none;
   font-size: 17px;
 }
+
 .topnav a:hover {
   background-color: rgb(37, 37, 37);
   color: rgb(154, 153, 153);}
 
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
