@@ -73,21 +73,21 @@ export default function Register() {
                     </select>
                   </div>
                   <input
-                    type="Email"
+                    type="email"
                     placeholder="Email"
                     name="Email"
                     className={styles.textInput}
                     required
                   ></input>
                   <input
-                    type="Mot de Passe"
+                    type="password"
                     placeholder="Mot de Passe"
                     name="Mot de Passe"
                     className={styles.textInput}
                     required
                   ></input>
                   <input
-                    type="Mot de Passe 2"
+                    type="password"
                     placeholder="Confirmez Mot de Passe"
                     name="Confirmez Mot de Passe"
                     className={styles.textInput}
@@ -104,7 +104,6 @@ export default function Register() {
                 </div>
               </div>
             </form>
-          </div>
         </section>
         <Footer/>
       </div>
