@@ -22,10 +22,9 @@ export class AuthService {
         }
 
         const payload = { sub: user.id, email: user.email }
-        user.refreshToken = await this.jwtService.signAsync(payload, {expiresIn: process.env.JWT_REFRESH_TOKEN_EXPIRATION})
 
         return {
-            access_token: await this.generateAccessToken(user.refreshToken)
+            access_token: await this.jwtService.signAsync(payload, {expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION})
         }
     }
     
@@ -33,27 +32,5 @@ export class AuthService {
         const {email, password, age, gender, firstName, lastName, cardId} = signUpDto
         const hashedPassword = await argon2.hash(password)
         return await this.usersService.create(email, hashedPassword, age, gender, firstName, lastName, cardId)
-    }
-
-    async generateAccessToken(refreshToken: string): Promise<string> {
-        const decoded = this.jwtService.decode(refreshToken)
-        if (!decoded) {
-            throw new Error("refreshToken not valid")
-        }
-
-        const user = await this.usersService.findOne(decoded.email)
-        if(!user) {
-            throw new NotFoundException('user not found')
-        }
-            
-        const decodedUserRefreshToken = this.jwtService.decode(user.refreshToken)
-        if (JSON.stringify(decoded) === JSON.stringify(decodedUserRefreshToken)) {
-            throw new UnauthorizedException('Invalid token')
-        }
-        
-        if(!await this.jwtService.verifyAsync(refreshToken)){
-            throw new UnauthorizedException('Invalid token')
-        }
-        return await this.jwtService.signAsync(decodedUserRefreshToken, {expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION})
     }
 }
