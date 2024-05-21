@@ -18,7 +18,6 @@ export default async function register(prevState: any, formData: FormData) {
     
     const apiUrl = process.env.API_URL || ""
     const url = `${apiUrl}/auth/register`
-    console.log(url)
     const res = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
