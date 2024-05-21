@@ -1,5 +1,4 @@
 .main {
-  font-family: var(--font-mono);
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
@@ -8,7 +7,7 @@
 
 .container {
   height: 90vh;
-  background: linear-gradient(#171717, #151515)
+  background: linear-gradient(#171717, #151515);
 }
 
 .boites{
@@ -19,24 +18,32 @@
 }
 
 .textInput {
+  font-size: 12px;
   background-color: rgb(255, 255, 255);
   width: 400px;
-  height: 35px;
-  padding: 10px;
+  height: 40px;
   border: none;
-  color: gray;
+  color: #353935;
   margin-left: 15px;
-  padding: 8px;
+  padding: 6px;
   border: solid;
   border-radius: 10px;
-  border-color: rgb(184, 0, 235);
+  border-color: #d0047d;
 }
 
 .button {
   padding: 10px;
   border: none;
-  background-color: rgb(0, 217, 255);
+  border: 2px solid #B2BEB5;
+  background: transparent;
+  color: #B2BEB5;
   cursor: pointer;
+}
+
+.button:hover {
+  border: 2px solid;
+  border-image: linear-gradient(#e24111, #d0047d) 5;
+  color: #FAF9F6;
 }
 
 .inputList input {
@@ -59,14 +66,6 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-}
-
-.gender_label {
-  font-family: sans-serif;
-  padding-top: 15px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-  padding-left: 30px;
 }
 
 .error {

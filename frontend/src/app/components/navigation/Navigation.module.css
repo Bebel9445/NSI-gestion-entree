@@ -1,33 +1,49 @@
 .topnav {
-    top: 0;
-    background-color: black;
-    overflow: hidden;
-    max-width: 100vw;
-    width: 100%;
-    list-style: none;
-    justify-content:center;
-    display:flex;
-  }
-  
-  .topnav li {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav li:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav li a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-  
-  .logo{
-    margin-right: 70px ;
-  }
+  top: 0;
+  background-color: black;
+  overflow: hidden;
+  max-width: 100vw;
+  width: 100%;
+  list-style: none;
+  justify-content: center;
+  display: flex;
+}
+
+.topnav li {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav li button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav li button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav li:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.logo {
+  margin-right: 10px;
+}
