@@ -15,6 +15,10 @@ export class AuthService {
     async signIn(signInDto: SignInDto): Promise<{access_token: string}> {
         const {email, password} = signInDto
         const user = await this.usersService.findOne(email)
+        if (!user) {
+            throw new NotFoundException()
+        }
+        
         //B64 DECODE PASS + ARGON2 CHECK
         const b64Decode = (str: string):string => Buffer.from(str, 'base64').toString('binary')
         if (!await argon2.verify(b64Decode(user.password), password)) {
