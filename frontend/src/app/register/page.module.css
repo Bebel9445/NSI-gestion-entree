@@ -1,0 +1,103 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  color: rgb(var(--foreground-rgb));
+  background: rgba(149, 14, 95, 0.1)
+}
+
+.container {
+  height: 90vh;
+  background: linear-gradient(#171717, #151515);
+}
+
+.boites{
+  justify-content: center;
+  align-items: center;
+  margin-left: 420px;
+  margin-top: 20px;
+}
+
+.textInput {
+  font-size: 12px;
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+  height: 40px;
+  border: none;
+  color: #353935;
+  margin-left: 15px;
+  padding: 6px;
+  border: solid;
+  border-radius: 10px;
+  border-color: #d0047d;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+  border: 2px solid #B2BEB5;
+  background: transparent;
+  color: #B2BEB5;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 2px solid;
+  border-image: linear-gradient(#e24111, #d0047d) 5;
+  color: #FAF9F6;
+}
+
+.inputList input {
+  display: block;
+  margin: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalCenter {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.error {
+  padding: 4px;
+  padding-bottom: 8px;
+  color: red;
+  font-size: 14px;
+}
+
+.topnav {
+  top: 0;
+  background-color: rgb(37, 37, 37);
+  overflow: hidden;
+  width: 100vw;
+  list-style: none;
+  justify-content:center;
+  display:flex;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center, top;
+  padding: 5px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: rgb(37, 37, 37);
+  color: rgb(154, 153, 153);}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
